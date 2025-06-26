@@ -8,7 +8,15 @@ if($mysqli -> connect_errno){
     exit();
 }
 
-Somar($_POST['numero1'],$_POST['numero2']);
+//insert
+if($result = $mysqli -> query("SELECT * FROM todo")){
+    echo "Returnd rows are: " . $result -> num_rows;
+    // free result set
+    $result -> free_result();
+}
+
+$mysqli -> close();
+/*Somar($_POST['numero1'],$_POST['numero2']);
 Dividir($_POST['numero1'],$_POST['numero2']);
 Multiplicar($_POST['numero1'],$_POST['numero2']);
 Subtrair($_POST['numero1'],$_POST['numero2']);
