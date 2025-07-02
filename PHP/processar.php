@@ -2,7 +2,6 @@
 
 $mysqli = new mysqli("localhost","root","root","programacao_2");
 
-
 if($mysqli -> connect_errno){
     echo "Failed to connect to MySQL: " . mysqli -> connect_errno;
     exit();
@@ -16,7 +15,7 @@ if($result = $mysqli -> query("SELECT * FROM todo")){
 }
 
 $mysqli -> close();
-/*Somar($_POST['numero1'],$_POST['numero2']);
+Somar($_POST['numero1'],$_POST['numero2']);
 Dividir($_POST['numero1'],$_POST['numero2']);
 Multiplicar($_POST['numero1'],$_POST['numero2']);
 Subtrair($_POST['numero1'],$_POST['numero2']);
