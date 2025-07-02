@@ -8,7 +8,8 @@ if($mysqli -> connect_errno){
 }
 
 //insert
-if($result = $mysqli -> query("SELECT * FROM todo")){
+if($result = $mysqli -> query(@"INSERT INTO todo(idtodo,description) VALUES ((select max(idtodo)+1 from todo),
+                                    Fazer olá mundo no PHP.);")){
     echo "Returnd rows are: " . $result -> num_rows;
     // free result set
     $result -> free_result();
