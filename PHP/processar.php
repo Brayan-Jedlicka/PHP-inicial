@@ -7,12 +7,13 @@ if($mysqli -> connect_errno){
     exit();
 }
 
-//insert
-if($result = $mysqli -> query(@"INSERT INTO todo(idtodo,description) VALUES ((select max(idtodo)+1 from todo),
-                                    Fazer olá mundo no PHP.);")){
+$descricao = $_POST['description'];
+
+if($result = $mysqli -> 
+query(@"INSERT INTO todo (description) VALUES ({$descricao}});")){
     echo "Returnd rows are: " . $result -> num_rows;
     // free result set
-    $result -> free_result();
+    // $result -> free_result();
 }
 
 $mysqli -> close();
