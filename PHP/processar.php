@@ -2,6 +2,8 @@
 
 $connection = require("dbfactory.php");
 
+return $mysqli;
+
 $descricao = $_POST['description'];
 
 if($result = $mysqli -> 
