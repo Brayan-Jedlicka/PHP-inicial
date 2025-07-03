@@ -2,13 +2,16 @@
 
 $connection = require("dbfactory.php");
 
-return $mysqli;
-
 $descricao = $_POST['description'];
 
-if($result = $mysqli -> 
-query(@"INSERT INTO todo (description) VALUES ($descricao);")){
+if($result = $connection -> 
+query(@"INSERT INTO todo (description) VALUES ('$descricao');")){
     echo "Inserido com sucesso";
+}
+else{
+    echo $connection->error;
 }
 
 $connection -> close();
+
+?>
