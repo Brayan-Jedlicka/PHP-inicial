@@ -7,7 +7,7 @@
 </head>
 <body>
     <form action = "processar.php" method = "post">
-        <label for="todo-description">Número 2</label>
+        <label for="todo-description">Digite algo</label>
         <input name="description" id="todo-description" type="text">
         <button type="submit">Enviar</button>
     </form>

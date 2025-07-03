@@ -1,37 +1,12 @@
 <?php
 
-$mysqli = new mysqli("localhost","root","root","programacao_2");
-
-if($mysqli -> connect_errno){
-    echo "Failed to connect to MySQL: " . mysqli -> connect_errno;
-    exit();
-}
+$connection = require("dbfactory.php");
 
 $descricao = $_POST['description'];
 
 if($result = $mysqli -> 
-query(@"INSERT INTO todo (description) VALUES ({$descricao}});")){
-    echo "Returnd rows are: " . $result -> num_rows;
-    // free result set
-    // $result -> free_result();
+query(@"INSERT INTO todo (description) VALUES ($descricao);")){
+    echo "Inserido com sucesso";
 }
 
-$mysqli -> close();
-Somar($_POST['numero1'],$_POST['numero2']);
-Dividir($_POST['numero1'],$_POST['numero2']);
-Multiplicar($_POST['numero1'],$_POST['numero2']);
-Subtrair($_POST['numero1'],$_POST['numero2']);
-
-
-function Somar($numero1,$numero2){
-    echo $numero1 + $numero2;
-}
-function Multiplicar($numero1,$numero2){
-    echo $numero1 * $numero2;
-}
-function Dividir($numero1,$numero2){
-    echo $numero1 / $numero2;
-
-}function Subtrair($numero1,$numero2){
-    echo $numero1 - $numero2;
-}
+$connection -> close();
