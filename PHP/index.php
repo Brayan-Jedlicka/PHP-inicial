@@ -10,7 +10,7 @@
     $connection = require("dbfactory.php");
     $sql = "SELECT idtodo, description FROM todo";
 
-    $result = $msqli->query($sql);
+    $result = $mysqli->query($sql);
 
     echo "<table>";
     while ($row = $result -> fetch_assoc()){
