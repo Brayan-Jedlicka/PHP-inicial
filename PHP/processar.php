@@ -1,11 +1,10 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>segundo troço ae</title>
-</head>
 <?php
 
 $connection = require("dbfactory.php");
+
+$nome = $_POST['nome'];
+$cpf = $_POST['CPF'];
+$endereco = $_POST['endereco'];
 
 $descricao = $_POST['description'];
 
