@@ -15,19 +15,19 @@
         }
         function Recuperar(){
             $connection = require("dbfactory.php");
-            $sql = "SELECT idpessoa,nome,cpf,endereco  FROM pessoa";
+            $sql = "SELECT idpessoa,nome,cpf,endereco FROM pessoa";
 
             $result = $mysqli->query($sql);
             echo "<table>";
             while ($row = $result->fetch_assoc()) {            
                 echo "<tr>" 
-                        . "<td>".$row["idpessoa"]."</td>"
+                        . "<td hidden>".$row["idpessoa"]."</td>"
                         . "<td>".$row["nome"]."</td>"
                         . "<td>".$row["cpf"]."</td>"
                         . "<td>".$row["endereco"]."</td>"
                     ."</tr>";
+                echo "</table>";
             }
-            echo "</table>";
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -35,12 +35,11 @@
             $cpf = htmlspecialchars($_POST['cpf']);
             $endereco = htmlspecialchars($_POST['endereco']);
             if(!empty($nome) && !empty($cpf) && !empty($endereco)) {
-                
                 Salvar($nome,$cpf,$endereco);
             } 
 
         }
-        Recuperar();        
+        Recuperar();
     ?>
     <form method="post">
         <label for = "name">nome</label>
