@@ -6,16 +6,16 @@
 </head>
 <body>
     <?php
-        function Salvar($pessoa){
+        function Salvar($nome,$cpf,$endereco){
             $connection = require("dbfactory.php");                        
             if ($connection -> 
-                query(@"INSERT INTO pessoa (description) VALUES ('$pessoa');")) {                 
+                query(@"INSERT INTO pessoa (nome,cpf,endereco) VALUES ('$nome','$cpf','$endereco');")) {                 
             }
             $connection -> close();
         }
         function Recuperar(){
             $connection = require("dbfactory.php");
-            $sql = "SELECT idpessoa,nome,cpf,endereco description FROM pessoa";
+            $sql = "SELECT idpessoa,nome,cpf,endereco  FROM pessoa";
 
             $result = $mysqli->query($sql);
             echo "<table>";
@@ -32,9 +32,13 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nome = htmlspecialchars($_POST['nome']); 
-            if(!empty($nome)){
-                Salvar($nome);
-            }           
+            $cpf = htmlspecialchars($_POST['cpf']);
+            $endereco = htmlspecialchars($_POST['endereco']);
+            if(!empty($nome) && !empty($cpf) && !empty($endereco)) {
+                
+                Salvar($nome,$cpf,$endereco);
+            } 
+
         }
         Recuperar();        
     ?>
